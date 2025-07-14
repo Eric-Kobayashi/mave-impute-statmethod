@@ -72,21 +72,33 @@ python main.py --urn urn:mavedb:00000001-a-1 --estimator-type bayesian_ridge
 
 1. **Random Forest** (`random_forest`)
    - Parameter: `--n-estimators` (default: 100)
-   - Good for complex, non-linear relationships
 
 2. **K-Nearest Neighbors** (`knn`)
    - Parameter: `--n-neighbors` (default: 15)
-   - Good for local patterns in data
 
 3. **Bayesian Ridge** (`bayesian_ridge`)
    - No additional parameters
-   - Good for linear relationships with regularization
 
 ## Output Files
 
 - **Preprocessed data**: `data/preprocessed/{urn}.tsv`
 - **Imputed data**: `data/imputed/{urn}_{estimator}_{params}.tsv`
 - **Evaluation results**: `data/evals/{urn}_{estimator}_{params}.tsv`
+
+### Evaluation Output
+
+The evaluation results contain performance metrics for each imputation model, calculated using a cross-validation approach:
+
+- **MSE (Mean Squared Error)**: Measures the average squared difference between true and imputed values
+- **Correlation**: Pearson correlation coefficient between true and imputed values
+- **Spearman**: Spearman rank correlation coefficient between true and imputed values
+
+Each evaluation file contains 100 rows, representing 100 iterations of the evaluation process where:
+1. 10% of valid amino acid scores are randomly masked
+2. The imputation model predicts these masked values
+3. Performance metrics are calculated by comparing predictions to true values
+
+This approach provides an estimate of model performance and accounts for the inherent variability in the imputation task.
 
 ## Makefile Targets
 
