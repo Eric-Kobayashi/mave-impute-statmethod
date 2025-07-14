@@ -2,7 +2,7 @@
 
 This pipeline performs imputation on MaveDB single variant data using various simple statistical learning estimators.
 
-Initial investigation leading to this pipeline is shown at [notebook[(https://github.com/allydunham/xai_hackathon2024/blob/sklearn-imputation/mavedb-imputation.ipynb)  
+Initial investigation leading to this pipeline is shown at [notebook](https://github.com/allydunham/xai_hackathon2024/blob/sklearn-imputation/mavedb-imputation.ipynb)  
 Data analysis dashboard showing the pipeline results is hosted at a [temporary site](http://jira-report.hgi.sanger.ac.uk:8050/)
 
 ## Overview
