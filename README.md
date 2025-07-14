@@ -112,6 +112,5 @@ This approach provides an estimate of model performance and accounts for the inh
 
 - Python 3.9+
 - Required packages: pandas, numpy, scikit-learn, scipy, loguru, joblib, tqdm
-    On the Sanger farm we have built an environment that contains all the dependencies. 
-    /software/hgi/softpack/installs/users/eh19/mave-impute/1-scripts/python
+    - On the Sanger farm we have built an environment that contains all the dependencies. `/software/hgi/softpack/installs/users/eh19/mave-impute/1-scripts/python`
 - HGI wr module for batch submission 
