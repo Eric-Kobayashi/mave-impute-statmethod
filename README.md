@@ -2,6 +2,9 @@
 
 This pipeline performs imputation on MaveDB single variant data using various simple statistical learning estimators.
 
+Initial investigation leading to this pipeline is shown at [notebook[(https://github.com/allydunham/xai_hackathon2024/blob/sklearn-imputation/mavedb-imputation.ipynb)  
+Data analysis dashboard showing the pipeline results is hosted at a [temporary site](http://jira-report.hgi.sanger.ac.uk:8050/)
+
 ## Overview
 
 The pipeline consists of two main scripts:
@@ -97,4 +100,6 @@ python main.py --urn urn:mavedb:00000001-a-1 --estimator-type bayesian_ridge
 
 - Python 3.9+
 - Required packages: pandas, numpy, scikit-learn, scipy, loguru, joblib, tqdm
+    On the Sanger farm we have built an environment that contains all the dependencies. 
+    /software/hgi/softpack/installs/users/eh19/mave-impute/1-scripts/python
 - HGI wr module for batch submission 
