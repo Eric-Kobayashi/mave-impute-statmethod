@@ -113,4 +113,19 @@ This approach provides an estimate of model performance and accounts for the inh
 - Python 3.9+
 - Required packages: pandas, numpy, scikit-learn, scipy, loguru, joblib, tqdm
     - On the Sanger farm we have built an environment that contains all the dependencies. `/software/hgi/softpack/installs/users/eh19/mave-impute/1-scripts/python`
-- HGI wr module for batch submission 
+- HGI wr module for batch submission
+
+## Motivation
+Claude has given quite a good summary of why imputing is beneficial:
+
+1. **Preserving Statistical Power**: Without imputation, you'd have to delete incomplete records, which reduces your sample size and weakens your statistical analysis. In genetics, this is huge because you need large datasets to detect subtle but important effects.
+
+2. **Avoiding Bias**: Deleting incomplete records can distort distributions, especially when data is not missing completely at random. In genetic studies, missing data often isn't random - certain types of variants might be more likely to have missing measurements, which would skew your results.
+
+3. **Comprehensive Variant Coverage**: For clinical applications, having complete variant effect maps is critical. If a patient has a genetic variant that's missing from your dataset, you can't provide guidance about its potential impact.
+
+4. **Improved Machine Learning Models**: Many modern approaches use machine learning to predict variant effects. Missing data can significantly impact analysis, potentially leading to biased estimates, reduced statistical power, and invalid conclusions. Complete datasets train better models.
+
+5. **Better Integration Across Studies**: MAVEDB combines data from multiple research groups. When you impute missing values thoughtfully, you can better integrate findings across different experiments and labs.
+
+The key is doing imputation thoughtfully - using methods that consider the biological relationships between similar variants, rather than just plugging in average values. Think of it like a smart autocorrect that understands genetics, not just a simple find-and-replace.
